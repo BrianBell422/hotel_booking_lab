@@ -1,21 +1,23 @@
 <template>
   <div id="app">
-
-    <booking-grid />
+    <h1>Motel Simon</h1>
+    <h2>"Where dreams come to die"</h2>
+    <h3>Simon says: "Don't be a twat"</h3>
+    <booking-form />
+    <bookings-grid />
   </div>
 </template>
 
 <script>
-import BookingGrid from '@/components/BookingGrid';
-import BookingForm from '@components/BookingForm';
+import BookingsGrid from '@/components/BookingsGrid';
+import BookingForm from '@/components/BookingForm';
 
 export default {
   name: 'App',
   components: {
     'booking-form': BookingForm,
-    'booking-grid': BookingGrid,
+    'bookings-grid': BookingsGrid,
   },
-
 
 
 }
