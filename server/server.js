@@ -11,7 +11,20 @@ app.use(cors());
 MongoClient.connect('mongodb://localhost:27017')
 .then((client) => {
     const db = client.db('bookings_hub');
-    const bookingsCollection = db.collection('bookings');
+    const bookingsCollection = db.collection('bookings') 
+    //     ,{
+    //     collMod: "bookings",
+    //     validator: {
+    //         $jsonSchema: {
+    //             bsonType: "object",
+    //             required: [ "name", "email", "checkedIn" ],
+    //             properties: {
+    //                 name: { bsonType: "string"},
+    //                 "minLength": 1,
+    //             }
+    //         }
+    //     }
+    // });
     const bookingsRouter = createRouter(bookingsCollection);
     app.use('/api/bookings', bookingsRouter);
 })

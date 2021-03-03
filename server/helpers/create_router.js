@@ -30,6 +30,7 @@ const createRouter = function (collection) {
 
     router.post('/', (req, res) => {
         const newData = req.body;
+        if (newData.name != '' && newData.email != '' && newData.checkedIn != null) {
         collection
         .insertOne(newData)
         .then((result) => {
@@ -39,7 +40,11 @@ const createRouter = function (collection) {
             console.error(err);
             res.status(500);
             res.json({ status: 500, error: err });
-        });
+        })}
+        else {
+            res.status(400);
+            res.json({ status: 400, error: "Could not complete"})
+        }
     });
     
     router.delete('/:id', (req, res) => {
