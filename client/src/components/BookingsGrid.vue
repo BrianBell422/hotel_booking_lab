@@ -30,6 +30,11 @@ export default {
             let index = this.bookings.findIndex(booking => booking._id === id)
             this.bookings.splice(index, 1)
         })
+
+        eventBus.$on('toggle-check-in', (id) => {
+            let index = this.bookings.findIndex(booking => booking._id === id)
+            bookings[index].checkedIn = checkedIn ? false : true;
+        })
     },
 
     components: {
@@ -39,5 +44,6 @@ export default {
 </script>
 
 <style>
+
 
 </style>
