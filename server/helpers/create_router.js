@@ -25,7 +25,7 @@ const createRouter = function (collection) {
             console.error(err);
             res.status(500);
             res.json({ status: 500, error: err });
-        })
+        });
     });
 
     router.post('/', (req, res) => {
@@ -40,7 +40,7 @@ const createRouter = function (collection) {
             res.status(500);
             res.json({ status: 500, error: err });
         });
-    })
+    });
     
     router.delete('/:id', (req, res) => {
         const id = req.params.id;
@@ -52,7 +52,7 @@ const createRouter = function (collection) {
             console.error(err);
             res.status(500);
             res.json({ status: 500, error: err });
-        })
+        });
     });
 
     return router;
